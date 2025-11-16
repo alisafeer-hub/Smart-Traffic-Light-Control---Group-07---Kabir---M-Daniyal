@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Traffic Light Prediction</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #007bff, #00d4ff);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 500px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    label {
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    input {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+    button {
+      grid-column: span 2;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .dashboard {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .light {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+    .north { background: #ccc; }
+    .east { background: #ccc; }
+    .west { background: #ccc; }
+    .south { background: #ccc; }
+
+    .active { box-shadow: 0 0 25px 5px green; background: limegreen; }
+
+    .level {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .Low { background: lightgreen; color: green; }
+    .Medium { background: gold; color: white; }
+    .High { background: orange; color: white; }
+    .Extreme { background: red; color: white; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Smart Traffic Light</h1>
+    <form action="/" method="post">
+      <label>North Cars:</label>
+      <input type="number" name="north" value="{{ form_data.get('north','') }}" required>
+
+      <label>East Cars:</label>
+      <input type="number" name="east" value="{{ form_data.get('east','') }}" required>
+
+      <label>West Cars:</label>
+      <input type="number" name="west" value="{{ form_data.get('west','') }}" required>
+
+      <label>South Cars:</label>
+      <input type="number" name="south" value="{{ form_data.get('south','') }}" required>
+
+      <label>North Arrival Rate:</label>
+      <input type="number" name="north_rate" value="{{ form_data.get('north_rate','') }}" required>
+
+      <label>East Arrival Rate:</label>
+      <input type="number" name="east_rate" value="{{ form_data.get('east_rate','') }}" required>
+
+      <label>West Arrival Rate:</label>
+      <input type="number" name="west_rate" value="{{ form_data.get('west_rate','') }}" required>
+
+      <label>South Arrival Rate:</label>
+      <input type="number" name="south_rate" value="{{ form_data.get('south_rate','') }}" required>
+
+      <label>Current Green (1=N,2=E,3=W,4=S):</label>
+      <input type="number" name="current_green" value="{{ form_data.get('current_green','') }}" required>
+
+      <button type="submit">Predict Next Green</button>
+    </form>
+
+    {% if prediction %}
+    <div class="dashboard">
+      <h3>Predicted Next Green: {{ prediction }}</h3>
+
+      <div>
+        <div class="light north {% if prediction == 1 %}active{% endif %}"></div>
+        <div class="light east {% if prediction == 2 %}active{% endif %}"></div>
+        <div class="light west {% if prediction == 3 %}active{% endif %}"></div>
+        <div class="light south {% if prediction == 4 %}active{% endif %}"></div>
+      </div>
+
+      <div class="level {{ level }}">{{ level }} Traffic</div>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
