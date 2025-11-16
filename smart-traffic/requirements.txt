@@ -1,0 +1,12 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+jupyterlab
+torch          # PyTorch (CPU/GPU as per system)
+stable-baselines3
+gym
+tensorboard
+opencv-python
+seaborn
+tqdm

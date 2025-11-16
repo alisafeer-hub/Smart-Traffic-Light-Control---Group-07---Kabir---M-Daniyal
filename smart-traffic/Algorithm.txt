@@ -1,0 +1,101 @@
+Algorithm: Smart Traffic Light Control Using Machine Learning
+
+Title: Smart Traffic Light Control — Algorithm Workflow
+
+Step 1: Data Collection
+
+Collect traffic data from:
+
+Custom traffic dataset (your own input)
+
+Kaggle Traffic Prediction Dataset
+
+Data includes:
+
+Cars per lane (North, East, West, South)
+
+Arrival rates per lane
+
+Time stamps
+
+Step 2: Data Preprocessing
+
+Handle missing or inconsistent data
+
+Normalize traffic counts and arrival rates
+
+Encode categorical features if any
+
+Split dataset into training (80%) and testing (20%)
+
+Step 3: Model Training
+
+Train three machine learning models:
+
+Random Forest (Ensemble of decision trees)
+
+Deep Q-Learning (Reinforcement Learning)
+
+Deep Neural Network (DNN)
+
+Evaluate models using:
+
+Accuracy
+
+Reward optimization (for RL)
+
+Loss and prediction error
+
+Step 4: Model Evaluation & Selection
+
+Compare all three models
+
+Select the best performing model (Random Forest)
+
+Metrics considered:
+
+Highest accuracy
+
+Real-time prediction stability
+
+Scalability
+
+Step 5: Real-Time Prediction
+
+Input live traffic data (cars and arrival rates per lane)
+
+Predict next green signal using the selected model
+
+Determine traffic density:
+
+Low, Medium, High, Extreme
+
+Step 6: Adaptive Signal Control
+
+Assign green light to lane with highest traffic need
+
+Update traffic light timing dynamically
+
+Loop continues for continuous traffic flow optimization
+
+Step 7: Optional Future Enhancements
+
+Integrate IoT sensors for real-time vehicle counting
+
+Connect to live camera feeds with OpenCV
+
+Apply CNN for vehicle detection
+
+Centralized control for multiple intersections
+
+Visual Diagram Idea
+
+Use boxes for each step
+
+Arrows connecting each step sequentially
+
+Highlight “Model Training & Selection” as the core block
+
+Optional side blocks for datasets and future enhancements
+
+White background, minimal colors, modern clean style

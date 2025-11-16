@@ -1,0 +1,30 @@
+🧠 Libraries Used
+⚙️ Core Python Libraries
+
+numpy → numerical calculations
+
+pandas → data handling and preprocessing
+
+matplotlib → plotting graphs / bar charts
+
+🤖 Machine Learning Models
+
+scikit-learn (sklearn) →
+
+RandomForestClassifier
+
+train_test_split, accuracy_score
+
+🧩 Reinforcement Learning (optional earlier part)
+
+gymnasium → environment creation
+
+stable_baselines3 → DQN agent (Deep Q-Learning)
+
+💻 Deep Learning (optional earlier version)
+
+tensorflow → simple Deep Neural Network (DNN)
+
+🌐 (Optional for UI / Integration)
+
+flask → web dashboard / traffic simulation form
